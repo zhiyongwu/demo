@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="ioc.OneBean" id="oneBean"/>
+    <bean class="ioc.AnotherBean" id="anotherBean"/>
+
+    <bean class="ioc.ExampleBean" id="exampleBean">
+        <constructor-arg name="another" ref="anotherBean"/>
+        <constructor-arg name="one" ref="oneBean"/>
+        <constructor-arg name="val" value="1"/>
+    </bean>
+
+    <bean class="ioc.ExampleBean1" id="exampleBean1"
+          p:anotherBean-ref="anotherBean"
+          p:age = "3"
+          p:str="1234"/>
+    <context:annotation-config/>
+</beans>
